@@ -2,7 +2,6 @@ import nltk
 from nltk.tokenize import sent_tokenize
 from nltk.tree import Tree
 from stanfordcorenlp import StanfordCoreNLP
-from treenode.node import *
 from utils import *
 
 nlp = StanfordCoreNLP(r'D:\Homework\nlp\stanford-corenlp-4.5.1', lang='en')
@@ -24,7 +23,7 @@ tree1 = nlp.parse(sentence)
 print('解析语法\n', tree1)
 # Tree.fromstring(tree1).draw()
 # print('解析语法关系', nlp.dependency_parse(sentence))
-ttree=Tree.fromstring(tree1)
+ttree = Tree.fromstring(tree1)
 
 dfs(ttree)
 nlp.close()
