@@ -19,6 +19,7 @@ def dfs(tree):
                             "RBR", "RBJJ", "JJS", "JJR",
                             "VB", "VBS", "VBD", "VBG", "VBN", "VBP", "VBZ"]:
             lef = tree.leaves()[0]
+            print(tree.leaves())
             typestr = findtype(lef)
             print(typestr)
             return
@@ -28,10 +29,8 @@ def dfs(tree):
         # for s in tree.subtrees(lambda tree: tree.height() == h):
         for i in range(len(tree)):
             i_tree = tree[i]
-            flag = 0  # 判断该词的位置是否是关键位置
+            # 判断该词的位置是否是关键位置
             if i_tree.label() in ["ROOT", "S", "PP", "NP", "VP", "NN", "NR", "NT"]:
-                flag = 1
-            if flag == 1:
                 dfs(i_tree)
         return
 

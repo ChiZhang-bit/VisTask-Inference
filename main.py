@@ -1,32 +1,28 @@
-import nltk
-from nltk.tokenize import sent_tokenize
-from nltk.tree import Tree
 from stanfordcorenlp import StanfordCoreNLP
+from NL_parser import *
 from utils import *
 
-nlp = StanfordCoreNLP(r'D:\Homework\nlp\stanford-corenlp-4.5.1', lang='en')
+if __name__ == "__main__":
+    nlp = StanfordCoreNLP(r'D:\stanford-corenlp-4.5.2', lang='en')
 
-sentence = 'Show the relationship between budget and rating for Action and Adventure movies that grossed over 100M.'
-print('分词:', nlp.word_tokenize(sentence))
+    sentence = 'Show the relationship and distribution between budget and rating for Action and Adventure movies that grossed over 100M.'
+    parser = Parser(text=sentence, nlp=nlp)
+    # print(parser)
+    print(parser.infer_task())
+    input()
 
-token = nlp.word_tokenize(sentence)
-# for i in token:
-#     if i.lower() in characterize_distribution_keywords:
-#         print("Task: characterize distribution")
-#         break
-input()
+    # print('分词:', nlp.word_tokenize(sentence))
+    # print('词性标注：', nlp.pos_tag(sentence))
+    # print('命名实体分析', nlp.ner(sentence))
 
-# print('词性标注：', nlp.pos_tag(sentence))
-# print('命名实体分析', nlp.ner(sentence))
+    tree1 = nlp.parse(sentence)
+    print(type(tree1))
+    print('解析语法\n', tree1)
 
-tree1 = nlp.parse(sentence)
-print('解析语法\n', tree1)
-# Tree.fromstring(tree1).draw()
-# print('解析语法关系', nlp.dependency_parse(sentence))
-ttree = Tree.fromstring(tree1)
-
-dfs(ttree)
-nlp.close()
+    ttree = Tree.fromstring(tree1)
+    print(type(ttree))
+    dfs(ttree)
+    nlp.close()
 
 
 
