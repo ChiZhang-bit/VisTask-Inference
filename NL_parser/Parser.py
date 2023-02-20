@@ -81,5 +81,11 @@ class Parser(object):
 
     def __str__(self):
         return f"The natural language is {self.text}\n" \
-               f"The pos_tag is {self.pos_tag}\n"\
+               f"The pos_tag is {self.pos_tag}\n" \
                f"The parse result is \n{self.parse}\n"
+
+    def infer_task_new(self):
+        """
+        推断该对象的自然语言表征的是什么样的任务
+        :return:
+        """
