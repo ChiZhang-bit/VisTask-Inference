@@ -1,0 +1,309 @@
+{
+    "rank": [
+        [
+            "find_extremum",
+            "MIN"
+        ]
+    ],
+    "sort": [
+        [
+            "find_extremum",
+            "MIN"
+        ]
+    ],
+    "max": [
+        [
+            "find_extremum",
+            "MAX"
+        ]
+    ],
+    "maximum": [
+        [
+            "find_extremum",
+            "MAX"
+        ]
+    ],
+    "highest": [
+        [
+            "find_extremum",
+            "MAX"
+        ]
+    ],
+    "greatest": [
+        [
+            "find_extremum",
+            "MAX"
+        ]
+    ],
+    "largest": [
+        [
+            "find_extremum",
+            "MAX"
+        ]
+    ],
+    "biggest": [
+        [
+            "find_extremum",
+            "MAX"
+        ]
+    ],
+    "most": [
+        [
+            "find_extremum",
+            "MAX"
+        ]
+    ],
+    "min": [
+        [
+            "find_extremum",
+            "MIN"
+        ]
+    ],
+    "minimum": [
+        [
+            "find_extremum",
+            "MIN"
+        ]
+    ],
+    "smallest": [
+        [
+            "find_extremum",
+            "MIN"
+        ]
+    ],
+    "lowest": [
+        [
+            "find_extremum",
+            "MIN"
+        ]
+    ],
+    "least": [
+        [
+            "find_extremum",
+            "MIN"
+        ]
+    ],
+    "heaviest": [
+        [
+            "find_extremum",
+            "MAX"
+        ]
+    ],
+    "lightest": [
+        [
+            "find_extremum",
+            "MIN"
+        ]
+    ],
+    "best": [
+        [
+            "find_extremum",
+            "MAX"
+        ]
+    ],
+    "worst": [
+        [
+            "find_extremum",
+            "MIN"
+        ]
+    ],
+    "after": [
+        [
+            "filter",
+            "GT"
+        ]
+    ],
+    "before": [
+        [
+            "filter",
+            "LT"
+        ]
+    ],
+    "since": [
+        [
+            "filter",
+            "GT"
+        ]
+    ],
+    "until": [
+        [
+            "filter",
+            "LT"
+        ]
+    ],
+    "more": [
+        [
+            "filter",
+            "GT"
+        ]
+    ],
+    "high": [
+        [
+            "filter",
+            "GT"
+        ]
+    ],
+    "over": [
+        [
+            "filter",
+            "GT"
+        ]
+    ],
+    "higher": [
+        [
+            "filter",
+            "GT"
+        ]
+    ],
+    "greater": [
+        [
+            "filter",
+            "GT"
+        ]
+    ],
+    "larger": [
+        [
+            "filter",
+            "GT"
+        ]
+    ],
+    "bigger": [
+        [
+            "filter",
+            "GT"
+        ]
+    ],
+    "under": [
+        [
+            "filter",
+            "LT"
+        ]
+    ],
+    "less": [
+        [
+            "filter",
+            "LT"
+        ]
+    ],
+    "lower": [
+        [
+            "filter",
+            "LT"
+        ]
+    ],
+    "lesser": [
+        [
+            "filter",
+            "LT"
+        ]
+    ],
+    "smaller": [
+        [
+            "filter",
+            "LT"
+        ]
+    ],
+    "between": [
+        [
+            "filter",
+            "RANGE"
+        ]
+    ],
+    "median": [
+        [
+            "derived_value",
+            "MEDIAN"
+        ]
+    ],
+    "average": [
+        [
+            "derived_value",
+            "AVG"
+        ]
+    ],
+    "mean": [
+        [
+            "derived_value",
+            "AVG"
+        ]
+    ],
+    "sum": [
+        [
+            "derived_value",
+            "SUM"
+        ]
+    ],
+    "total": [
+        [
+            "derived_value",
+            "SUM"
+        ]
+    ],
+    "distribute": [
+        [
+            "distribution", None
+        ]
+    ],
+    "distribution": [
+        [
+            "distribution", None
+        ]
+    ],
+    "range": [
+        [
+            "distribution", None
+        ]
+    ],
+    "extent": [
+        [
+            "distribution", None
+        ]
+    ],
+    "outlier": [
+        [
+            "outlier",
+        ]
+    ],
+    "exception": [
+        [
+            "outlier",
+        ] 
+    ],
+    "correlation": [
+        [
+            "correlation", None
+        ]
+    ],
+    "correlate": [
+        [
+            "correlation", None
+        ]
+    ],
+    "relationship": [
+        [
+            "correlation", None
+        ]
+    ],
+    "not": [
+        [
+            "negation", None
+        ]
+    ],
+    "equals": [
+        [
+            "filter",
+            "EQ"
+        ]
+    ],
+    "equal": [
+        [
+            "filter",
+            "EQ"
+        ]
+    ],
+    "trend": [
+        [
+            "trend", None
+        ]
+    ]
+}

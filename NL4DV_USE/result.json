@@ -1,0 +1,357 @@
+{
+    "query_raw": "Show average prices for different home types over the years.",
+    "query": "show average prices for different home types over the years .",
+    "dataset": "housing.csv",
+    "alias": None,
+    "visList": [
+        {
+            "attributes": [
+                "Price",
+                "Home Type",
+                "Year"
+            ],
+            "queryPhrase": None,
+            "visType": None,
+            "tasks": [
+                "trend"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                    "type": "line",
+                    "tooltip": True
+                },
+                "encoding": {
+                    "y": {
+                        "field": "Price",
+                        "type": "quantitative",
+                        "aggregate": "mean",
+                        "axis": {
+                            "format": "s"
+                        }
+                    },
+                    "color": {
+                        "field": "Home Type",
+                        "type": "nominal",
+                        "aggregate": None
+                    },
+                    "x": {
+                        "field": "Year",
+                        "type": "temporal",
+                        "aggregate": None
+                    }
+                },
+                "transform": [],
+                "data": {
+                    "url": "housing.csv",
+                    "format": {
+                        "type": "csv"
+                    }
+                }
+            }
+        },
+        {
+            "attributes": [
+                "Price",
+                "Home Type",
+                "Year"
+            ],
+            "queryPhrase": None,
+            "visType": None,
+            "tasks": [
+                "trend"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                    "type": "line",
+                    "tooltip": True
+                },
+                "encoding": {
+                    "y": {
+                        "field": "Price",
+                        "type": "quantitative",
+                        "aggregate": "mean",
+                        "axis": {
+                            "format": "s"
+                        }
+                    },
+                    "column": {
+                        "field": "Home Type",
+                        "type": "nominal",
+                        "aggregate": None
+                    },
+                    "x": {
+                        "field": "Year",
+                        "type": "temporal",
+                        "aggregate": None
+                    },
+                    "color": {
+                        "field": "Home Type",
+                        "type": "nominal",
+                        "aggregate": None
+                    }
+                },
+                "transform": [],
+                "data": {
+                    "url": "housing.csv",
+                    "format": {
+                        "type": "csv"
+                    }
+                }
+            }
+        },
+        {
+            "attributes": [
+                "Price",
+                "Home Type",
+                "Year"
+            ],
+            "queryPhrase": None,
+            "visType": None,
+            "tasks": [
+                "trend"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                    "type": "bar",
+                    "tooltip": True
+                },
+                "encoding": {
+                    "y": {
+                        "field": "Price",
+                        "type": "quantitative",
+                        "aggregate": "mean",
+                        "axis": {
+                            "format": "s"
+                        }
+                    },
+                    "x": {
+                        "field": "Home Type",
+                        "type": "nominal",
+                        "aggregate": None
+                    },
+                    "column": {
+                        "field": "Year",
+                        "type": "temporal",
+                        "aggregate": None
+                    },
+                    "color": {
+                        "field": "Home Type",
+                        "type": "nominal",
+                        "aggregate": None
+                    }
+                },
+                "transform": [],
+                "data": {
+                    "url": "housing.csv",
+                    "format": {
+                        "type": "csv"
+                    }
+                }
+            }
+        },
+        {
+            "attributes": [
+                "Price",
+                "Home Type",
+                "Year"
+            ],
+            "queryPhrase": None,
+            "visType": None,
+            "tasks": [
+                "trend"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                    "type": "tick",
+                    "tooltip": True
+                },
+                "encoding": {
+                    "y": {
+                        "field": "Price",
+                        "type": "quantitative",
+                        "aggregate": None,
+                        "axis": {
+                            "format": "s"
+                        }
+                    },
+                    "color": {
+                        "field": "Home Type",
+                        "type": "nominal",
+                        "aggregate": None
+                    },
+                    "x": {
+                        "field": "Year",
+                        "type": "temporal",
+                        "aggregate": None
+                    }
+                },
+                "transform": [],
+                "data": {
+                    "url": "housing.csv",
+                    "format": {
+                        "type": "csv"
+                    }
+                }
+            }
+        },
+        {
+            "attributes": [
+                "Price",
+                "Home Type",
+                "Year"
+            ],
+            "queryPhrase": None,
+            "visType": None,
+            "tasks": [
+                "trend"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                    "type": "tick",
+                    "tooltip": True
+                },
+                "encoding": {
+                    "y": {
+                        "field": "Price",
+                        "type": "quantitative",
+                        "aggregate": None,
+                        "axis": {
+                            "format": "s"
+                        }
+                    },
+                    "column": {
+                        "field": "Home Type",
+                        "type": "nominal",
+                        "aggregate": None
+                    },
+                    "x": {
+                        "field": "Year",
+                        "type": "temporal",
+                        "aggregate": None
+                    },
+                    "color": {
+                        "field": "Home Type",
+                        "type": "nominal",
+                        "aggregate": None
+                    }
+                },
+                "transform": [],
+                "data": {
+                    "url": "housing.csv",
+                    "format": {
+                        "type": "csv"
+                    }
+                }
+            }
+        },
+        {
+            "attributes": [
+                "Price",
+                "Home Type",
+                "Year"
+            ],
+            "queryPhrase": None,
+            "visType": None,
+            "tasks": [
+                "trend"
+            ],
+            "inferenceType": "implicit",
+            "vlSpec": {
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "mark": {
+                    "type": "tick",
+                    "tooltip": True
+                },
+                "encoding": {
+                    "y": {
+                        "field": "Price",
+                        "type": "quantitative",
+                        "aggregate": None,
+                        "axis": {
+                            "format": "s"
+                        }
+                    },
+                    "x": {
+                        "field": "Home Type",
+                        "type": "nominal",
+                        "aggregate": None
+                    },
+                    "column": {
+                        "field": "Year",
+                        "type": "temporal",
+                        "aggregate": None
+                    },
+                    "color": {
+                        "field": "Home Type",
+                        "type": "nominal",
+                        "aggregate": None
+                    }
+                },
+                "transform": [],
+                "data": {
+                    "url": "housing.csv",
+                    "format": {
+                        "type": "csv"
+                    }
+                }
+            }
+        }
+    ],
+    "attributeMap": {
+        "Home Type": {
+            "name": "Home Type",
+            "queryPhrase": [
+                "home types"
+            ],
+            "inferenceType": "explicit",
+            "isAmbiguous": False,
+            "ambiguity": []
+        },
+        "Year": {
+            "name": "Year",
+            "queryPhrase": [
+                "years"
+            ],
+            "inferenceType": "explicit",
+            "isAmbiguous": False,
+            "ambiguity": []
+        },
+        "Price": {
+            "name": "Price",
+            "queryPhrase": [
+                "prices"
+            ],
+            "inferenceType": "explicit",
+            "isAmbiguous": False,
+            "ambiguity": []
+        }
+    },
+    "taskMap": {
+        "trend": [
+            {
+                "task": "trend",
+                "queryPhrase": [],
+                "operator": None,
+                "values": None,
+                "attributes": [
+                    "Price",
+                    "Home Type",
+                    "Year"
+                ],
+                "inferenceType": "implicit"
+            }
+        ]
+    },
+    "followUpQuery": False,
+    "contextObj": None
+}

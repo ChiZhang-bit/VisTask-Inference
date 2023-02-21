@@ -3,9 +3,12 @@ from NL_parser import *
 from utils import *
 
 if __name__ == "__main__":
-    nlp = StanfordCoreNLP(r'D:\stanford-corenlp-4.5.2', lang='en')
+    path_LX = r"F:\stanford-corenlp-4.5.1"
+    path_Linc = r"D:\stanford-corenlp-4.5.2"
+    nlp = StanfordCoreNLP(path_LX, lang='en')
 
-    sentence = 'Show the relationship and distribution between budget and rating for Action and Adventure movies that grossed over 100M.'
+    sentence = 'Show the relationship and distribution between budget and rating for Action and Adventure movies that ' \
+               'grossed over 100M. '
     parser = Parser(text=sentence, nlp=nlp)
     # print(parser)
     print(parser.infer_task())
