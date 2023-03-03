@@ -33,6 +33,25 @@ class Parser(object):
             "range": ["range"]
         }
 
+    def _vis_keyword_map(self):
+        self.vis_keyword_dict = {
+            "bar_chart": ["bar chart", "bar"],
+            "strip_plot": [],
+            "pie_chart": [],
+            "radial_plot": [],
+            "box_plot": [],
+            "stacked_bar_chart": [],
+            "line_chart": [],
+            "multi_series_line_chart": [],
+            "scatter_plot": [],
+            "horizon_graph": [],
+            "ranged_dot_plot": [],
+            "parallel_coordinate_plot": [],
+            "2D_histogram_heatmap": [],
+            "2D_histogram_scatter_plot": [],
+            "cell_plot": []
+        }
+
     def draw(self):
         self.parse_tree.draw()
 
@@ -89,3 +108,4 @@ class Parser(object):
         推断该对象的自然语言表征的是什么样的任务
         :return:
         """
+        pass
