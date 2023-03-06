@@ -11,8 +11,9 @@ class Parser(object):
         self.parse_tree = Tree.fromstring(self.parse)  # tree : 构建形成语法分析树的形式
         self.dependency = nlp.dependency_parse(self.text)  # 句法依存分析
         self.pos_tag = nlp.pos_tag(self.text)  # 词性标注
-        self.ner = nlp.ner(self.text)  # 命名实体识别
         self._keyword_map()
+        self._vis_keyword_map()
+        self._task_mapping_vis()
 
     def _keyword_map(self):
         """
@@ -26,7 +27,10 @@ class Parser(object):
             "deviation": ["deviation", "disparity"],
             "compare": ["difference", "differ", "comparison"],
             "find_anomalies": ["anomalies", "outlier"],
-            "compute_derived_value": ["sum", "average", "max", "min", "mean"],
+            "compute_derived_value_sum": ["sum", "summation", "total"],
+            "compute_derived_value_avg": ["average", "avg", "mean"],
+            "compute_derived_value_max": ["max", "maximum"],
+            "compute_derived_value_min": ["min", "minimum"],
             "magnitude": ["comparison"],
             "part_to_whole": ["proportion", "part"],
             "trend": ["trend"],
@@ -35,27 +39,52 @@ class Parser(object):
 
     def _vis_keyword_map(self):
         self.vis_keyword_dict = {
-            "bar_chart": ["bar chart", "bar"],
-            "strip_plot": [],
-            "pie_chart": [],
-            "radial_plot": [],
-            "box_plot": [],
-            "stacked_bar_chart": [],
-            "line_chart": [],
-            "multi_series_line_chart": [],
-            "scatter_plot": [],
-            "horizon_graph": [],
-            "ranged_dot_plot": [],
-            "parallel_coordinate_plot": [],
-            "2D_histogram_heatmap": [],
-            "2D_histogram_scatter_plot": [],
-            "cell_plot": []
+            "stacked bar chart": ["stacked bar chart"],  # 这一条要放在barchart前面判断
+            "bar chart": ["bar chart", "barchart", "as bar"],
+            "strip plot": ["strip plot", "stripplot", "as strip"],
+            "pie chart": ["pie chart", "piechart", "as pie"],
+            "radial plot": ["radial plot", "radialplot"],
+            "box plot": ["box plot", "boxplot", "box diagram"],
+            # 同样的下面的这一条要放在line chart 的前面
+            "multi series line chart": ["multi series line chart", "multi line chart", "series line chart", "group line chart"],
+            "line chart": ["line chart", "linechart", "line graphs", "line graph"],
+            "scatter plot": ["scatter plot", "scatterplot"],
+            "horizon graph": ["horizon graph",],
+            "ranged dot plot": ["ranged dot plot", "range dot plot"],
+            "parallel coordinate plot": ["parallel coordinate plot", "parallel plot"],
+            "2D_histogram heatmap": ["histogram heatmap", "heatmap", "2D heatmap"],
+            "2D_histogram scatter plot": ["histogram scatter plot"],
+            "cell plot": ["cell plot", "dot plot", "dotplot", "cellplot"]
+        }
+
+    def _task_mapping_vis(self):
+        self.task_mapping_vis_dict = {
+            "characterize_distribution": ["bar chart", "stacked bar chart", "box plot"],
+            "correlation": ["scatter plot", "line chart"],
+            "sort": ["line chart"],
+            "deviation": ["bar chart"],
+            "compare": ["heatmap", "dot plot"],
+            "find_anomalies": ["box plot", "strip plot"],
+            "compute_derived_value_sum": ["pie chart", "radial plot"],
+            "compute_derived_value_avg": ["bar chart"],
+            "compute_derived_value_max": ["bar chart"],
+            "compute_derived_value_min": ["bar chart"],
+            "magnitude": ["pie chart", "parallel coordinate plot"],
+            "part_to_whole": ["pie chart", "radial plot"],
+            "trend": ["line chart", "multi series line chart"],
+            "range": ["ranged dot plot"]
         }
 
     def draw(self):
         self.parse_tree.draw()
 
-    # 分析属于什么任务, 先把ytj的整合上去吧
+    def infer_visualization(self):
+        for key in self.vis_keyword_dict.keys():
+            for keyword in self.vis_keyword_dict[key]:
+                if keyword in self.text:
+                    return key
+        return None
+
     def infer_task(self, parse_tree=None):
         """
         这段由于递归调用的原因，parse_tree单独列出来了一个函数，调用该函数的时候：
@@ -64,6 +93,7 @@ class Parser(object):
         :return:
         """
         # 初次进入递归时使用parse_tree is None
+        print("digui ing")
         if parse_tree is None:
             parse_tree = self.parse_tree
 
@@ -98,14 +128,21 @@ class Parser(object):
                 return key
         return None
 
+    def inference(self):
+        # Step1 : 判断有无直接指明vis type:
+        vis_type = self.infer_visualization()
+        if vis_type is not None:
+            return [vis_type]
+        # Step2 : 如果vis_type = None, infer_task:
+        task_results = self.infer_task()
+
+        # Step3 : 将分析出的task转换成对应的可视化形式
+        vis_results = []
+        for task in task_results:
+            vis_results.extend(self.task_mapping_vis_dict[task])
+        return vis_results
+
     def __str__(self):
         return f"The natural language is {self.text}\n" \
                f"The pos_tag is {self.pos_tag}\n" \
                f"The parse result is \n{self.parse}\n"
-
-    def infer_task_new(self):
-        """
-        推断该对象的自然语言表征的是什么样的任务
-        :return:
-        """
-        pass
